@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/clientmanager/static/css/main.cfcca6c0.chunk.css",
+    "main.js": "/clientmanager/static/js/main.28bda0e2.chunk.js",
+    "main.js.map": "/clientmanager/static/js/main.28bda0e2.chunk.js.map",
+    "runtime-main.js": "/clientmanager/static/js/runtime-main.ddb3dc39.js",
+    "runtime-main.js.map": "/clientmanager/static/js/runtime-main.ddb3dc39.js.map",
+    "static/js/2.b6382540.chunk.js": "/clientmanager/static/js/2.b6382540.chunk.js",
+    "static/js/2.b6382540.chunk.js.map": "/clientmanager/static/js/2.b6382540.chunk.js.map",
+    "index.html": "/clientmanager/index.html",
+    "precache-manifest.503d4240ef26c6dba23423fdf615f78a.js": "/clientmanager/precache-manifest.503d4240ef26c6dba23423fdf615f78a.js",
+    "service-worker.js": "/clientmanager/service-worker.js",
+    "static/css/main.cfcca6c0.chunk.css.map": "/clientmanager/static/css/main.cfcca6c0.chunk.css.map",
+    "static/js/2.b6382540.chunk.js.LICENSE.txt": "/clientmanager/static/js/2.b6382540.chunk.js.LICENSE.txt",
+    "static/media/3.jpg": "/clientmanager/static/media/3.49c6ec3f.jpg",
+    "static/media/4.jpg": "/clientmanager/static/media/4.a0f64b79.jpg",
+    "static/media/8.jpg": "/clientmanager/static/media/8.4d3bcfa3.jpg",
+    "static/media/bat.jpg": "/clientmanager/static/media/bat.07c6453b.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ddb3dc39.js",
+    "static/js/2.b6382540.chunk.js",
+    "static/css/main.cfcca6c0.chunk.css",
+    "static/js/main.28bda0e2.chunk.js"
+  ]
+}
