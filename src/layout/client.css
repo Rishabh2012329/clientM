@@ -1,0 +1,28 @@
+
+table{
+    background-color: rgba(0, 0, 0, 0.555);
+}
+
+.fa-users{
+    color:white
+}
+
+h2{
+    color:white;
+}
+th{
+    color:white;
+}
+td{
+    color:white
+}
+ #but:hover{
+    box-shadow: 0 0 13px  rgba(65, 62, 62, 0.582);
+}
+#but::-moz-focus-inner { border: 0; }
+span{
+    color: white;
+}
+h3{
+    font-size: 1cm;
+}

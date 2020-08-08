@@ -1,0 +1,9 @@
+.my .card{
+    background: rgba(0, 0, 0, 0.541);
+    color:white;
+}
+
+.list-group-item{
+    background: rgba(0, 0, 0, 0.342);
+    color:white;
+}
