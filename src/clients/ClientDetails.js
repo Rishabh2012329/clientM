@@ -11,7 +11,8 @@ import '../layout/ClientDetails.css';
 class ClientDetails extends Component {
   state = {
     showBalanceUpdate: false,
-    balanceUpdateAmount: ''
+    balanceUpdateAmount: '',
+    error:{}
   };
 
   // Update balance
@@ -19,12 +20,23 @@ class ClientDetails extends Component {
     e.preventDefault(); //preventing default action like reload
 
     const { client, firestore } = this.props;
-    const { balanceUpdateAmount } = this.state;
+    var { balanceUpdateAmount } = this.state;
 
+    balanceUpdateAmount=Array.from(balanceUpdateAmount);
+        var check=true;
+        balanceUpdateAmount.map((bl)=>(
+            bl=parseInt(bl),
+            isNaN(bl)?
+             check=false:null
+        ))
+        balanceUpdateAmount=balanceUpdateAmount.toString();
+        balanceUpdateAmount=balanceUpdateAmount.split(",").join("");
+        console.log(balanceUpdateAmount)
     const clientUpdate = {
       balance: parseFloat(balanceUpdateAmount)
     };
-
+   
+    if(check)
     // Update in firestore
     firestore.update({ collection: 'users', doc: client.id }, clientUpdate);
   };
@@ -38,7 +50,21 @@ class ClientDetails extends Component {
       .then(history.push('/')); //pushing user to Home Component
   };
 
-  onChange = e => this.setState({ [e.target.name]: e.target.value });
+  onChange = (e) => {
+    var {balanceUpdateAmount} =this.state;
+    balanceUpdateAmount=Array.from(balanceUpdateAmount);
+        var check=true;
+        balanceUpdateAmount.map((bl)=>(
+            bl=parseInt(bl),
+            isNaN(bl)?
+             check=false:null
+        ))
+        if(!check){
+            this.setState({error:{balance:"it should be a number"}})
+        }
+        else
+        this.setState({error:{}})
+    this.setState({ [e.target.name]: e.target.value });}
 
   render() {
     const { client } = this.props;
@@ -47,18 +73,23 @@ class ClientDetails extends Component {
     let balanceForm = '';
     // If balance form should display
     if (showBalanceUpdate) {
+      const {error}=this.state;
       balanceForm = (
         <form onSubmit={this.balanceSubmit}>
           <div className="input-group">
             <input
               type="text"
-              className="form-control"
+              className={classnames("form-control",{
+                "is-invalid":error.balance
+            })}
               name="balanceUpdateAmount"
               placeholder="Add New Balance"
               value={balanceUpdateAmount}
               onChange={this.onChange}
+              error={error.balance}
               required
             />
+            {error?<div className="invalid-feedback">{error.balance}</div>:null}
             <div className="input-group-append">
               <input
                 type="submit"
