@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import  {compose} from 'redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import background from './bat.jpg'
-import '../layout/Addclients.css'
+import '../layout/Addclients.css';
+import classnames from 'classnames';
 
 class Addclients extends Component {
     state={
@@ -13,26 +14,49 @@ class Addclients extends Component {
         lastName:"",
         phone:"",
         balance:"",
+        error:{},
     }
 
     onChange=(e)=>{
-        //Changing state as we change input
+        var {balance} =this.state;
+        balance=Array.from(balance);
+        var check=true;
+        balance.map((bl)=>(
+            bl=parseInt(bl),
+            isNaN(bl)?
+             check=false:null 
+        ))
+        if(!check){
+            this.setState({error:{balance:"it should be a number"}})
+        }
+        else
+        this.setState({error:{}})
+        //Changing state as we change input   
         this.setState({[e.target.name]:e.target.value})
     }
      sub=(e)=>{
         const newClient=this.state;
         newClient.uid=this.props.auth.uid;
+        var {balance} =this.state;
+        var check=true;
         if(newClient.balance===""){
             newClient.balance=0;
         }
+        balance=Array.from(balance)
         const {firestore}= this.props
+        balance.map((bl)=>(
+            bl=parseInt(bl),
+            isNaN(bl)?
+             check=false:null 
+        ))
         //Adding new Client 
+        if(check)
         firestore.add({collection:"users"},newClient).then(()=>this.props.history.push('/')).catch((error)=>alert(error))
     }
     
 
     render() {   
-        const {firstName,lastName,email,phone,balance}=this.state;
+        const {firstName,lastName,email,phone,balance,error}=this.state;
         return (
              <div>
                  <style>{`body{background-image:url(${background});background-size:100%;overflow:hidden}`}</style>
@@ -55,7 +79,12 @@ class Addclients extends Component {
                 <input type="text" className="form-control" value={phone} name="phone" onChange={this.onChange} placeholder="phone..." ></input>  
                 </div>
                 <div className="form-group">
-                <input type="text" className="form-control" value={balance} name="balance" onChange={this.onChange} placeholder="balance..."required ></input>  
+                <input type="text" className={classnames("form-control",{
+                    "is-invalid":error.balance
+                })} value={balance} name="balance" onChange={this.onChange} placeholder="balance..." error={error.balance} required ></input>
+
+                {error?<div className="invalid-feedback">{error.balance}</div>:null}   
+
                 </div>
                 </form>
                 <button onClick={firstName!==""&&lastName!==""&&email!==""&&phone!==""?this.sub:null} className="btn btn-dark  btn-block">Add</button>    
