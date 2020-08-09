@@ -26,7 +26,11 @@ class Login extends Component {
     sign=(e)=>{
         e.preventDefault();
         this.setState({newtothis:true}); 
+<<<<<<< HEAD
         this.setState({email:"",password:"",confirmpassword:""}) 
+=======
+        this.setState({email:"",password:"", confirmpassword:""}) 
+>>>>>>> 9803432144b555e3abd0e41630eabc56e937a166
     }
     newto=(e)=>{
         e.preventDefault(); //from preventing any default action like reload
@@ -49,7 +53,11 @@ class Login extends Component {
     logi=(e)=>{
         e.preventDefault();
         this.setState({newtothis:false});
+<<<<<<< HEAD
         this.setState({email:"",password:""}) ;
+=======
+         this.setState({email:"",password:""});
+>>>>>>> 9803432144b555e3abd0e41630eabc56e937a166
     }
     onChange=(e)=>{
         this.setState({[e.target.name]:e.target.value})
