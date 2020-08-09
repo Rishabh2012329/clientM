@@ -57,6 +57,7 @@ class ClientDetails extends Component {
               placeholder="Add New Balance"
               value={balanceUpdateAmount}
               onChange={this.onChange}
+              required
             />
             <div className="input-group-append">
               <input
