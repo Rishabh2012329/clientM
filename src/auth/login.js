@@ -26,6 +26,7 @@ class Login extends Component {
     sign=(e)=>{
         e.preventDefault();
         this.setState({newtothis:true}); 
+        this.setState({email:"",password:"",confirmpassword:""}) 
     }
     newto=(e)=>{
         e.preventDefault(); //from preventing any default action like reload
@@ -48,6 +49,7 @@ class Login extends Component {
     logi=(e)=>{
         e.preventDefault();
         this.setState({newtothis:false});
+        this.setState({email:"",password:""}) ;
     }
     onChange=(e)=>{
         this.setState({[e.target.name]:e.target.value})
