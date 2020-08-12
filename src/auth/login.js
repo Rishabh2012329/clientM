@@ -54,6 +54,17 @@ class Login extends Component {
     onChange=(e)=>{
         this.setState({[e.target.name]:e.target.value})
     }
+    forget=(e)=>{
+        var user =firebase.auth();
+        var email=this.state.email;
+        user.sendPasswordResetEmail(email).then(()=>(
+            alert("email sent"),
+            this.setState({email:""})
+        )).catch((error)=>(
+            alert(error.message),
+            this.setState({email:""})
+        ))
+    }
     render() {
         const { newtothis }=this.state;
         return (
@@ -74,9 +85,11 @@ class Login extends Component {
                          </button>
                          </div>:<div className="row">
                 <button id="log" type="submit" onClick={this.state.email!==""&&this.state.password!==""?this.sub:null}>Login</button>
-                <button onClick={this.sign}id="sign" type="submit">signup</button>
+                <button onClick={this.sign} id="sign" type="submit">signup</button>
+                
                 </div> 
                 }    </form>
+                <div className="forget"><button  onClick={this.forget}>Forget password</button></div>
                 </div>   
                  
                  

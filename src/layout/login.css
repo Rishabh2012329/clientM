@@ -34,7 +34,7 @@
     background-color:rgba(40, 182, 27, 0.774);
     color:white;
     margin:3%;
- 
+    outline:none;
 }
 .log .row #log:hover{
     box-shadow: -0px 0px 10px rgba(92, 228, 122, 0.644);
@@ -58,6 +58,7 @@
     padding:3px;
     padding-left: 6px;
     padding-right: 6px;
+    outline:none;
   }
   
   .log .row  #sign:hover{
@@ -69,7 +70,40 @@
     background-color:rgba(31, 32, 32, 0.884);
     color:white;
     padding:3px;
+    outline:none;
   }
   .log #new:hover{
       box-shadow: 0px 0px 10px rgb(23, 23, 24);
+  }
+  .forget{
+     display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;  
+    border:transparent;
+    background-color: rgba(0, 0, 0, 0.541);
+    margin:auto;  
+    margin-top: 2%;
+    text-align: center;
+    min-width:20px;
+    max-width: 350px;
+    border-radius: 0 20px 0 20px;
+    animation: mymove2 0.8s ;
+    animation-timing-function: linear;
+  }
+  .forget button{
+      background-color: darkblue;
+      color:white;
+      border:none;
+      padding:3px;
+      border:0;
+      outline:none;
+  }
+
+@keyframes mymove2{
+    from {opacity: 0.1;margin-top: 0;}
+    to {opacity: 1;margin-top: 2%;}
+  }
+  .forget button:hover{
+      box-shadow: 0px 0px 13px rgba(4, 7, 175, 0.877);
   }

@@ -65,6 +65,7 @@ class Client extends Component {
         }   
   
         if(clients){
+         
             return (
               <div>
                 <style>{`body{background-image:url(${backy});background-size:100%;overflow:hidden}`}</style>
@@ -89,7 +90,7 @@ class Client extends Component {
                   </h5>
                 </div>
                 <div style={{textAlign:'center'}} className="container">      
-                 <button id="but" onClick={change}style={{background:'rgba(0,0,0,.700)',color:'white',padding:'20px',borderRadius:'23px 23px 23px 23px'}}>change</button>                     
+                 <button id="but" onClick={change}style={{background:'rgba(0,0,0,.700)',color:'white',padding:'20px',borderRadius:'23px 23px 23px 23px',outline:'none'}}>change</button>                     
               </div>
               </div>
                 <div>

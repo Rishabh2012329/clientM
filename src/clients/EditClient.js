@@ -21,11 +21,14 @@ class EditClient extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-
+    const {users}=this.props;
     const { client, firestore, history } = this.props;
+    var checkph=true;
+    var checknm=true;
 
     // Updated Client
-    const updClient = {
+    const updClient = { 
+      
       firstName: this.firstNameInput.current.value,
       lastName: this.lastNameInput.current.value,
       email: this.emailInput.current.value,
@@ -35,8 +38,18 @@ class EditClient extends Component {
           ? 0
           : this.balanceInput.current.value
     };
-
+    users.map((user)=>(
+      user.phone===updClient.phone?checkph=false:null,
+      user.firstName===updClient.firstName&&user.lastName===updClient.lastName?checknm=false:null
+  ))
+  if(!checkph){
+    alert("another client is using this phone no.");
+}
+if(!checknm){
+    alert("there can't be two clients with same name")
+}
     // Update client in firestore
+    if(checkph&&checknm)
     firestore
       .update({ collection: 'users', doc: client.id }, updClient)
       .then(history.push('/'));
@@ -116,7 +129,8 @@ class EditClient extends Component {
                 <div className="form-group">
                   <label htmlFor="balance">Balance</label>
                   <input
-                    type="text"
+                    type="number"
+                    step="1"
                     className="form-control"
                     name="balance"
                     ref={this.balanceInput}
@@ -150,10 +164,12 @@ EditClient.propTypes = {
 
 export default compose(
   firestoreConnect(props => [
-    { collection: 'users', storeAs: 'client', doc: props.match.params.id } //getting client from our store
+    { collection: 'users', storeAs: 'client', doc: props.match.params.id }, //getting client from our store
+    'users' 
   ]),
   connect(({ firestore: { ordered }, settings }, props) => ({
     client: ordered.client && ordered.client[0],
+    users:ordered.users,
     settings
   }))
 )(EditClient);
