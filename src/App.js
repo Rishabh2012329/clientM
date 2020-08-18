@@ -65,6 +65,7 @@ export default class App extends Component {
         <Navbar/> 
         <Switch>
         <Route exact path="/" component={UserIsAuthenticated(Client)}/>
+        <Route exact path="/clientM/" component={UserIsAuthenticated(Client)}/>
         <Route exact path="/login" component={UserIsNotAuthenticated(Login)}/>
         <Route exact path="/Home/addclients" component={UserIsAuthenticated(Addclients)}/>
         <Route exact path="/Home/:id" component={UserIsAuthenticated(ClientDetails)}/>

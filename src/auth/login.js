@@ -31,10 +31,12 @@ class Login extends Component {
     newto=(e)=>{
         e.preventDefault(); //from preventing any default action like reload
         const {email,password,confirmpassword}=this.state;
-        if(password===confirmpassword)
-         firebase.auth().createUserWithEmailAndPassword(email,password) //creating a new user
-         .catch((error)=>{alert(error)
+        if(password===confirmpassword){
+            firebase.auth().createUserWithEmailAndPassword(email,password) //creating a new user
+         .catch((error)=>{
+        alert(error)
         this.setState({email:"",password:"",confirmpassword:""})})
+        }
         else
         alert("you have to put same password in confirmpassword as password")
     }

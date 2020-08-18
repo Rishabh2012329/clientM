@@ -138,7 +138,7 @@ if(!checknm){
                     disabled={disableBalanceOnEdit}
                   />
                 </div>
-
+                
                 <input
                   type="submit"
                   value="Submit"
