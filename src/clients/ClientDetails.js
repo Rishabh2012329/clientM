@@ -109,12 +109,7 @@ class ClientDetails extends Component {
         <div>
           <style>{`body{background-image:url(${back});background-size:100%;overflow:hidden}`}</style>
           
-          <div className="row">
-            <div className="col-md-6">
-              <Link to="/" className="btn btn-link">
-                <i className="fas fa-arrow-circle-left" /> Back To Home
-              </Link>
-            </div>
+          <div style={{maxWidth:"100%"}} className="row">
             <div className="col-md-6">
               <div className="btn-group float-right">
                 <Link to={`/Home/edit/${client.id}`} className="btn btn-dark">

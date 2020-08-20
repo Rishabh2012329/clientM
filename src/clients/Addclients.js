@@ -56,7 +56,7 @@ class Addclients extends Component {
         return (
              <div>
                  <style>{`body{background-image:url(${background});background-size:100%;overflow:hidden}`}</style>
-            <div className="row">
+            <div style={{maxWidth:"100%"}} className="row">
             <div className="col-md-3 mx-auto"> 
             <div className="cust">
             <div className="card">

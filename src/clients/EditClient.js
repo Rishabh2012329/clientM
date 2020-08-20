@@ -63,15 +63,9 @@ if(!checknm){
       return (
         <div>
           <style>{`body{background-image:url(${back});background-size:100%;overflow:hidden}`}</style>
-          <div className="row">
-            <div className="col-md-6">
-              <Link to="/" className="btn btn-link">
-                <i className="fas fa-arrow-circle-left" /> Back To Home
-              </Link>
-            </div>
-          </div>
-          <div style={{}}>
-          <div className="myy">
+          
+          <div >
+          <div style={{marginTop:"2%"}}className="myy">
           <div style={{width:'60%',margin:'auto'}}className="card">
             <div className="card-header">Edit Client</div>
             <div className="card-body">
@@ -142,7 +136,7 @@ if(!checknm){
                 <input
                   type="submit"
                   value="Submit"
-                  className="btn btn-primary btn-block"
+                  className="btn btn-dark btn-block"
                 />
               </form>
             </div>

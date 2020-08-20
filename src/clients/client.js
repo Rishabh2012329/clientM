@@ -68,20 +68,33 @@ class Client extends Component {
          
             return (
               <div>
-                <style>{`body{background-image:url(${backy});background-size:100%;overflow:hidden}`}</style>
-              <div className="row">
-                <div className="col-md-2">
+  <style>{`body::before{content: "";
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -10;
+    background:url(${backy}) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}}`}</style>
+              <div style={{display:"flex",padding:"10%",paddingTop:"0",paddingBottom:"0",maxWidth:"100%"}}className="row">
+                <div className="col">
                   <h2>
                     {' '}
                     <i className="fas fa-users" /> Clients{' '}
                   </h2>
                 </div>
-                <div className="col-md-7">
+                <div className="col">
                   <Link to={'/Home/addclients'}>
                   <button style={{margin:"auto"}} className="btn btn-dark"><i className="fas fa-plus"></i> Add</button>
                   </Link>
                 </div>
-                <div   className="col-md-3">
+                <div   className="col">
                   <h5  className="text-left text-secondary" style={{textAlign:'left'}}>
                     Total Owed{' '}
                     <span className="text-primary">
@@ -93,11 +106,11 @@ class Client extends Component {
                  <button id="but" onClick={change}style={{background:'rgba(0,0,0,.700)',color:'white',padding:'20px',borderRadius:'23px 23px 23px 23px',outline:'none'}}>change</button>                     
               </div>
               </div>
-                <div>
-                  <div className="row" style={{marginTop:'2%'}}>
-                  <div className="col">
-                  <table className="table table-striped">
-            <thead className="thead-inverse">
+                <div   className="container">
+                  <div className="row" style={{marginTop:'2%',}}>
+                  <div style={{}} className="col table-responsive">
+                  <table style={{width:"100%",}}  className="table table-striped ">
+            <thead  className="thead-inverse">
               <tr>
                 <th>Name</th>
                 <th>Email</th>

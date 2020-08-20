@@ -1,8 +1,28 @@
+body:before{
+    content: "";
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -10;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
 table{
     background-color: rgba(0, 0, 0, 0.555);
+
 }
 
+.res{
+   margin: 0%;
+   width:50%;
+   scrollbar-width: 0;
+}
 .fa-users{
     color:white
 }
